@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Kenisha 💖</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #5a3d5c;
+        }
+        
+        /* Heart fall animation */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            top: -10vh;
+            font-size: 20px;
+            color: #ff4d8d;
+            animation: fall linear forwards;
+            opacity: 0.7;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Page container */
+        .page-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Hidden class for page transitions */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Page 1 - Game invitation */
+        #page1 {
+            animation: fadeIn 1s ease;
+        }
+        
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #e63946;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .kenisha-name {
+            color: #9d4edd;
+            text-decoration: underline;
+            text-decoration-color: #ffafcc;
+        }
+        
+        .game-invite {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            margin: 20px;
+            border: 8px solid #ffafcc;
+            position: relative;
+        }
+        
+        .game-invite:before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px dashed #ff8fab;
+            border-radius: 30px;
+            pointer-events: none;
+        }
+        
+        .game-invite h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #5a3d5c;
+        }
+        
+        .game-invite p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #ff4d8d, #9d4edd);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(157, 78, 221, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Page 2 - Game */
+        #page2 {
+            width: 100%;
+        }
+        
+        .game-header {
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #e63946;
+            margin-bottom: 10px;
+        }
+        
+        .score-container {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .score {
+            font-weight: bold;
+            color: #9d4edd;
+            font-size: 1.8rem;
+        }
+        
+        .game-area {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            max-width: 1000px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid #ffafcc;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+        
+        .emoji {
+            position: absolute;
+            font-size: 3.5rem;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        .emoji:hover {
+            transform: scale(1.2);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        /* Auto-transition message */
+        .auto-transition-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px 50px;
+            border-radius: 20px;
+            font-size: 2rem;
+            color: #e63946;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            border: 5px solid #ffafcc;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            animation: popUp 0.8s ease-out;
+            display: none;
+        }
+        
+        .auto-transition-message.show {
+            display: block;
+        }
+        
+        /* Cute message popup - ONLY THIS ONE APPEARS NOW */
+        .cute-message {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            color: #e63946;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border: 3px solid #ffafcc;
+            font-family: 'Dancing Script', cursive;
+            max-width: 300px;
+            text-align: center;
+            animation: popUp 0.5s ease-out;
+        }
+        
+        @keyframes popUp {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Page 3 - Love Letter */
+        #page3 {
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .letter-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 12px solid #ffafcc;
+            position: relative;
+        }
+        
+        .letter-container:before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 4px dotted #ff8fab;
+            border-radius: 35px;
+            pointer-events: none;
+        }
+        
+        .letter-header {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #e63946;
+            margin-bottom: 30px;
+            border-bottom: 3px double #ffafcc;
+            padding-bottom: 15px;
+        }
+        
+        .letter-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        
+        .letter-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #9d4edd;
+            text-align: right;
+            margin-top: 30px;
+        }
+        
+        /* Page 4 - Valentine Question */
+        #page4 {
+            animation: fadeIn 1s ease;
+        }
+        
+        .valentine-question {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 25px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 10px solid #ffafcc;
+            position: relative;
+        }
+        
+        .valentine-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #e63946;
+            margin-bottom: 30px;
+        }
+        
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .option-btn {
+            padding: 20px 50px;
+            font-size: 1.8rem;
+            min-width: 180px;
+        }
+        
+        #no-btn {
+            background: linear-gradient(to right, #a8a8a8, #6c757d);
+            position: relative;
+            z-index : 2;
+        }
+        
+        .final-message {
+            font-size: 2.5rem;
+            color: #e63946;
+            margin-top: 40px;
+            font-family: 'Dancing Script', cursive;
+            opacity: 0;
+            transition: opacity 1s ease;
+            margin-bottom: 30px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .final-message.show {
+            opacity: 1;
+        }
+        
+        /* Page 5 - Video Page */
+        #page5 {
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .video-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 900px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 12px solid #ffafcc;
+            position: relative;
+        }
+        
+        .video-container:before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 4px dotted #ff8fab;
+            border-radius: 35px;
+            pointer-events: none;
+        }
+        
+        .video-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #e63946;
+            margin-bottom: 30px;
+            border-bottom: 3px double #ffafcc;
+            padding-bottom: 15px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* YOUR GOOGLE DRIVE VIDEO IS HERE - LINE 367 */
+        .video-message {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #5a3d5c;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        /* Confetti effect */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            opacity: 0;
+            animation: confettiFall 5s linear forwards;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .music-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #e63946;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .music-btn:hover {
+            background-color: rgba(230, 57, 70, 0.1);
+        }
+        
+        .music-title {
+            font-size: 0.9rem;
+            color: #5a3d5c;
+            max-width: 150px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+            
+            .game-invite, .letter-container, .valentine-question, .video-container {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .letter-header, .valentine-title, .video-title {
+                font-size: 2.8rem;
+            }
+            
+            .options-container {
+                gap: 20px;
+            }
+            
+            .option-btn {
+                padding: 15px 30px;
+                font-size: 1.5rem;
+                min-width: 140px;
+            }
+            
+            .emoji {
+                font-size: 2.8rem;
+            }
+            
+            .auto-transition-message {
+                font-size: 1.5rem;
+                padding: 20px 30px;
+                width: 90%;
+            }
+            
+            .video-message {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .game-invite h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .letter-content {
+                font-size: 1.1rem;
+            }
+            
+            .auto-transition-message {
+                font-size: 1.2rem;
+                padding: 15px 20px;
+            }
+            
+            .video-title {
+                font-size: 2.2rem;
+            }
+            
+            .video-message {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background hearts -->
+    <div class="hearts-container" id="hearts-container"></div>
+    
+    <!-- Auto transition message -->
+    <div class="auto-transition-message" id="auto-transition-message">
+        <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+        <div>Yay! You collected all the love! 💖</div>
+        <div style="font-size: 1.2rem; margin-top: 10px; color: #9d4edd;">Taking you to your love letter...</div>
+    </div>
+    
+    <!-- Page 1: Game invitation -->
+    <div class="page-container" id="page1">
+        <h1 class="title">For My <span class="kenisha-name">Kenisha</span> 💖</h1>
+        <div class="game-invite">
+            <h2>Will You Play a Game With Me?</h2>
+            <p>My dearest Kenisha, I've created a little Valentine's game just for you. It's a simple game where you catch cute emojis to reveal sweet messages. Are you ready to play?</p>
+            <button class="btn" id="start-game-btn">Yes, Let's Play! <i class="fas fa-gamepad"></i></button>
+        </div>
+    </div>
+    
+    <!-- Page 2: Emoji game -->
+    <div class="page-container hidden" id="page2">
+        <div class="game-header">
+            <h2 class="game-title">Catch the Love Emojis!</h2>
+            <div class="score-container">Score: <span class="score" id="score">0</span> / 6</div>
+            <p>Catch the falling emojis to reveal sweet messages. Collect all 6 to unlock your love letter!</p>
+        </div>
+        
+        <div class="game-area" id="game-area">
+            <!-- Emojis will be generated here -->
+        </div>
+    </div>
+    
+    <!-- Page 3: Love letter -->
+    <div class="page-container hidden" id="page3">
+        <div class="letter-container">
+            <h2 class="letter-header">My Dearest Kenisha,</h2>
+            <div class="letter-content">
+                <p>From the moment you came into my life, everything has felt brighter, warmer, and more beautiful. Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received.</p>
+                
+                <p>On this special day dedicated to love, I want to remind you how incredibly special you are to me. You're not just my Valentine; you're my best friend, my confidant, and my greatest support. Every moment with you is a treasure I hold close to my heart.</p>
+                
+                <p>I love the way your eyes sparkle when you talk about things you're passionate about. I love how you make even ordinary days feel extraordinary. I love your kindness, your strength, and the beautiful person you are inside and out.</p>
+                
+                <p>Today and every day, I choose you. I choose to love you, to cherish you, and to build beautiful memories with you. Thank you for being you, and for letting me be a part of your wonderful journey.</p>
+                
+                <p>Happy Valentine's Day, my love. May our hearts continue to dance together through all of life's adventures.</p>
+            </div>
+            <div class="letter-signature">
+                With all my love, forever and always.<br>
+                Your Valentine ❤️
+            </div>
+            <button class="btn" id="next-page-btn" style="margin-top: 40px;">Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+    
+    <!-- Page 4: Valentine question -->
+    <div class="page-container hidden" id="page4">
+        <div class="valentine-question">
+            <h2 class="valentine-title">One Last Question...</h2>
+            <div class="pulse" style="font-size: 8rem; color: #e63946;">💖</div>
+            <div class="options-container">
+                <button class="btn option-btn" id="yes-btn">YES! <i class="fas fa-heart"></i></button>
+                <button class="btn option-btn" id="no-btn">No <i class="fas fa-times"></i></button>
+            </div>
+            <div class="final-message" id="final-message"></div>
+            <!-- Button to go to video page -->
+            <button class="btn" id="to-video-btn" style="display: none; margin-top: 20px;">Watch Our Special Video <i class="fas fa-video"></i></button>
+        </div>
+    </div>
+    
+    <!-- Page 5: Video page -->
+    <div class="page-container hidden" id="page5">
+        <div class="video-container">
+            <h2 class="video-title">For My Kenisha 💖</h2>
+            <div class="video-wrapper">
+                <!-- YOUR GOOGLE DRIVE VIDEO IS EMBEDDED HERE -->
+                <iframe
+                    src="https://drive.google.com/file/d/1K3_MfZ3gJZsE_euqWhXfPmJzlg818FES/preview"
+                    width="100%"
+                    height="450"
+                    frameborder="0"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-message">
+                This is just a small token of my love for you, Kenisha. Every moment with you is special, and I wanted to create something that shows how much you mean to me. I love you more than words can say! 💖
+            </div>
+            <button class="btn" id="restart-btn" style="margin-top: 30px;">Start Over <i class="fas fa-redo"></i></button>
+        </div>
+    </div>
+    
+    <!-- Confetti container -->
+    <div class="confetti-container" id="confetti-container"></div>
+    
+    <!-- Music player -->
+    <div class="music-player">
+        <button class="music-btn" id="music-toggle">
+            <i class="fas fa-play" id="music-icon"></i>
+        </button>
+        <div class="music-title">Love Song for Kenisha</div>
+        <audio id="bg-music" loop>
+            <source src="https://github.com/xjerinx/Valentine/blob/main/until_i_found_you.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // DOM Elements
+        const pages = document.querySelectorAll('.page-container');
+        const startGameBtn = document.getElementById('start-game-btn');
+        const gameArea = document.getElementById('game-area');
+        const scoreElement = document.getElementById('score');
+        const nextPageBtn = document.getElementById('next-page-btn');
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const finalMessage = document.getElementById('final-message');
+        const toVideoBtn = document.getElementById('to-video-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        const bgMusic = document.getElementById('bg-music');
+        const heartsContainer = document.getElementById('hearts-container');
+        const confettiContainer = document.getElementById('confetti-container');
+        const autoTransitionMessage = document.getElementById('auto-transition-message');
+        
+        // Game variables
+        let score = 0;
+        let emojiInterval;
+        
+        // Cute messages for when emojis are clicked - ONLY THESE APPEAR NOW
+        const cuteMessages = [
+            "You make my heart skip a beat! 💓",
+            "You're sweeter than candy! 🍬",
+            "My love for you grows every day! 🌱",
+            "You're my favorite thought! 💭",
+            "You shine brighter than stars! ⭐",
+            "You're my happy place! 🏠",
+            "My heart is yours forever! 🔐",
+            "You're absolutely amazing! ✨",
+            "You make everything better! 🌈",
+            "I'm so lucky to have you! 🍀",
+            "You're my dream come true! 💫",
+            "I cherish every moment with you! ⏳"
+        ];
+        
+        // Emoji options
+        const emojis = ["💖", "🌸", "🌹", "💐", "🍫", "🍩", "🧁", "🎀", "💝", "💌", "💕", "💞", "💓", "💗", "💘", "💟"];
+        
+        // Page navigation functions
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+        
+        // Initialize game
+        function startGame() {
+            showPage('page2');
+            score = 0;
+            scoreElement.textContent = score;
+            gameArea.innerHTML = '';
+            
+            // Clear any existing interval
+            if (emojiInterval) clearInterval(emojiInterval);
+            
+            // Create emojis at regular intervals
+            emojiInterval = setInterval(createEmoji, 1500);
+            
+            // Create initial emojis
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => createEmoji(), i * 500);
+            }
+        }
+        
+        // Create a falling emoji
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Random position
+            const maxX = gameArea.offsetWidth - 60;
+            const xPos = Math.random() * maxX;
+            emoji.style.left = `${xPos}px`;
+            emoji.style.top = '-70px';
+            
+            // Random animation duration
+            const duration = 5 + Math.random() * 10;
+            emoji.style.animation = `fall ${duration}s linear forwards`;
+            
+            // Click event
+            emoji.addEventListener('click', handleEmojiClick);
+            
+            gameArea.appendChild(emoji);
+            
+            // Remove emoji after animation completes
+            setTimeout(() => {
+                if (emoji.parentNode) {
+                    emoji.remove();
+                }
+            }, duration * 1000);
+        }
+        
+        // Show cute message at click position - ONLY THIS MESSAGE APPEARS NOW
+        function showCuteMessage(x, y, message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'cute-message';
+            messageElement.textContent = message;
+            messageElement.style.left = `${x}px`;
+            messageElement.style.top = `${y}px`;
+            
+            gameArea.appendChild(messageElement);
+            
+            // Remove message after 1.5 seconds
+            setTimeout(() => {
+                if (messageElement.parentNode) {
+                    messageElement.remove();
+                }
+            }, 1500);
+        }
+        
+        // Handle emoji click - SIMPLIFIED: Only shows cute message
+        function handleEmojiClick(e) {
+            const emoji = e.target;
+            const clickX = e.clientX - gameArea.getBoundingClientRect().left;
+            const clickY = e.clientY - gameArea.getBoundingClientRect().top;
+            
+            // Get a random cute message
+            const randomCuteMessage = cuteMessages[Math.floor(Math.random() * cuteMessages.length)];
+            
+            // Show cute message at click position
+            showCuteMessage(clickX - 100, clickY - 50, randomCuteMessage);
+            
+            // Increase score
+            score++;
+            scoreElement.textContent = score;
+            
+            // Add visual feedback to emoji
+            emoji.style.transform = 'scale(1.5)';
+            emoji.style.opacity = '0.5';
+            emoji.style.pointerEvents = 'none'; // Prevent double clicking
+            
+            // Remove emoji after click
+            setTimeout(() => {
+                if (emoji.parentNode) {
+                    emoji.remove();
+                }
+            }, 300);
+            
+            // Check if game is complete
+            if (score >= 6) {
+                clearInterval(emojiInterval);
+                
+                // Show auto-transition message
+                autoTransitionMessage.classList.add('show');
+                
+                // Create celebration effect
+                createCelebration();
+                
+                // Auto transition to love letter after 2 seconds
+                setTimeout(() => {
+                    autoTransitionMessage.classList.remove('show');
+                    showPage('page3');
+                }, 2000);
+            }
+        }
+        
+        // Create celebration effect when game is complete
+        function createCelebration() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.style.position = 'absolute';
+                    heart.style.fontSize = '2.5rem';
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.top = `${Math.random() * 100}%`;
+                    heart.style.zIndex = '5';
+                    heart.style.animation = 'pulse 1s ease-in-out';
+                    gameArea.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        if (heart.parentNode) {
+                            heart.remove();
+                        }
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+        
+        // Create falling hearts background
+        function createHearts() {
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 300);
+            }
+            
+            // Keep creating hearts
+            setInterval(createHeart, 1500);
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            
+            // Random position
+            const leftPos = Math.random() * 100;
+            heart.style.left = `${leftPos}vw`;
+            
+            // Random size
+            const size = 15 + Math.random() * 25;
+            heart.style.fontSize = `${size}px`;
+            
+            // Random animation duration
+            const duration = 10 + Math.random() * 20;
+            heart.style.animationDuration = `${duration}s`;
+            
+            heartsContainer.appendChild(heart);
+            
+            // Remove heart after animation completes
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.remove();
+                }
+            }, duration * 1000);
+        }
+        
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#ff4d8d', '#9d4edd', '#ffafcc', '#ff8fab', '#ff6b6b', '#ff8e53', '#ffd166', '#06d6a0'];
+            
+            // Create LOTS of confetti pieces
+            for (let i = 0; i < 250; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random color
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.backgroundColor = color;
+                
+                // Random position across entire screen
+                confetti.style.left = `${Math.random() * 100}vw`;
+                
+                // Random size
+                const width = 8 + Math.random() * 20;
+                const height = 15 + Math.random() * 25;
+                confetti.style.width = `${width}px`;
+                confetti.style.height = `${height}px`;
+                
+                // Random rotation
+                const rotation = Math.random() * 360;
+                confetti.style.transform = `rotate(${rotation}deg)`;
+                
+                // Random animation duration and delay for staggered effect
+                const delay = Math.random() * 2;
+                const duration = 3 + Math.random() * 4;
+                confetti.style.animation = `confettiFall ${duration}s ease-out ${delay}s forwards`;
+                
+                confettiContainer.appendChild(confetti);
+                
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.remove();
+                    }
+                }, (delay + duration) * 1000);
+            }
+        }
+        
+        // Move "No" button when clicked - FIXED VERSION
+        function moveNoButton() {
+            const maxAttempts = 5;
+            let attempts = 0;
+            
+            noBtn.addEventListener('click', function() {
+                attempts++;
+                
+                // If max attempts reached, hide the button
+                if (attempts >= maxAttempts) {
+                    noBtn.style.display = 'none';
+                    return;
+                }
+                
+                // Random position within the container
+                const container = document.querySelector('.valentine-question');
+                const containerRect = container.getBoundingClientRect();
+                const buttonRect = noBtn.getBoundingClientRect();
+                
+                // Calculate available space (consider padding)
+                const maxX = containerRect.width - buttonRect.width - 40;
+                const maxY = containerRect.height - buttonRect.height - 40;
+                
+                // Ensure we don't get negative values
+                if (maxX > 0 && maxY > 0) {
+                    const randomX = Math.random() * maxX;
+                    const randomY = Math.random() * maxY;
+                    
+                    // Move the button
+                    noBtn.style.position = 'absolute';
+                    noBtn.style.left = `${randomX}px`;
+                    noBtn.style.top = `${randomY}px`;
+                }
+                
+                // Change text on last attempt
+                if (attempts === maxAttempts - 1) {
+                    setTimeout(() => {
+                        noBtn.textContent = "Okay, fine!";
+                    }, 300);
+                }
+            });
+        }
+        
+        // Music control
+        function setupMusic() {
+            // Try to autoplay with user interaction
+            document.addEventListener('click', function initMusic() {
+                bgMusic.volume = 0.5;
+                bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
+                document.removeEventListener('click', initMusic);
+            }, { once: true });
+            
+            // Toggle play/pause
+            musicToggle.addEventListener('click', function() {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                } else {
+                    bgMusic.pause();
+                    musicIcon.classList.remove('fa-pause');
+                    musicIcon.classList.add('fa-play');
+                }
+            });
+        }
+        
+        // Event Listeners
+        startGameBtn.addEventListener('click', startGame);
+        
+        nextPageBtn.addEventListener('click', function() {
+            showPage('page4');
+        });
+        
+        yesBtn.addEventListener('click', function() {
+            finalMessage.textContent = "YAY! You've made me the happiest person! I love you so much, Kenisha! 💖🎉";
+            finalMessage.classList.add('show');
+            
+            // Show the video button
+            toVideoBtn.style.display = 'inline-flex';
+            
+            // Create confetti effect
+            createConfetti();
+            
+            // Hide the YES button after click
+            yesBtn.style.display = 'none';
+            
+            // Play celebration sound if available
+            try {
+                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-happy-crowd-laugh-464.mp3');
+                audio.volume = 0.5;
+                audio.play();
+            } catch (e) {
+                console.log("Celebration sound error:", e);
+            }
+        });
+        
+        toVideoBtn.addEventListener('click', function() {
+            showPage('page5');
+        });
+        
+        restartBtn.addEventListener('click', function() {
+            showPage('page1');
+        });
+        
+        // Initialize everything when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            // Start background hearts
+            createHearts();
+            
+            // Setup music
+            setupMusic();
+            
+            // Setup no button behavior
+            moveNoButton();
+            
+            // Show first page
+            showPage('page1');
+        });
+    </script>
+</body>
+</html>
