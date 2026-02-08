@@ -423,6 +423,7 @@
             background: linear-gradient(to right, #a8a8a8, #6c757d);
             position: relative;
             z-index: 2;
+            transition: all 0.5s ease !important;
         }
         
         .final-message {
@@ -783,92 +784,6 @@
                 min-width: 50px;
             }
         }
-        
-        @media (max-width: 480px) {
-            .title {
-                font-size: 2.5rem;
-            }
-            
-            .personal-message {
-                font-size: 1.3rem;
-            }
-            
-            .game-invite h2 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 14px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .letter-content {
-                font-size: 1.3rem;
-            }
-            
-            .typewriter-line {
-                font-size: 1.3rem;
-            }
-            
-            .valentine-title {
-                font-size: 2.5rem;
-            }
-            
-            .valentine-subtitle {
-                font-size: 1.8rem;
-            }
-            
-            .pickup-line-footer {
-                font-size: 1rem;
-                padding: 10px 15px;
-                margin-top: 30px;
-            }
-            
-            .letter-signature {
-                font-size: 1.7rem;
-            }
-            
-            #video-iframe {
-                height: 250px;
-            }
-            
-            .closing-line {
-                font-size: 1.8rem;
-            }
-            
-            .auto-transition-message {
-                font-size: 1.2rem;
-                padding: 15px 20px;
-            }
-            
-            .video-title {
-                font-size: 2.2rem;
-            }
-            
-            .video-message {
-                font-size: 1.1rem;
-            }
-            
-            .final-message {
-                font-size: 1.7rem;
-            }
-            
-            .video-buttons-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .video-page-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            #secret-btn {
-                font-size: 1.3rem;
-                padding: 10px 15px;
-                min-width: 45px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1004,7 +919,7 @@
     <!-- Music Player -->
     <div class="music-player">
         <button class="music-btn" id="music-toggle">
-            <i class="fas fa-play" id="music-icon"></i>
+            <i class="fas fa-pause" id="music-icon"></i>
         </button>
         <div class="music-title">Our Love Song 💘</div>
         <audio id="bg-music" loop>
@@ -1213,8 +1128,8 @@
         function resetAudio() {
             bgMusic.pause();
             bgMusic.currentTime = 0;
-            musicIcon.classList.remove('fa-pause');
-            musicIcon.classList.add('fa-play');
+            musicIcon.classList.remove('fa-play');
+            musicIcon.classList.add('fa-pause');
         }
         
         // Initialize game
@@ -1436,7 +1351,7 @@
             }
         }
         
-        // Move and update "No" button when clicked
+        // Move and update "No" button when clicked - WITH GRADUAL MOVEMENT
         function setupNoButton() {
             noBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1444,41 +1359,66 @@
                 
                 // Change button text based on clicks
                 if (noButtonClicks === 1) {
-                    // First click - just move
-                    moveButtonRandomly();
+                    // First click - gradual movement with smooth animation
+                    moveButtonGradually();
                 } else if (noButtonClicks === 2) {
-                    // Second click - change to "why no? ☹" and move
+                    // Second click - change to "why no? ☹" and move gradually
                     noBtn.innerHTML = "why no? ☹";
-                    moveButtonRandomly();
+                    moveButtonGradually();
                 } else if (noButtonClicks === 3) {
-                    // Third click - change to "say yes pretty please 🥺"
+                    // Third click - change to "say yes pretty please 🥺" and move gradually
                     noBtn.innerHTML = "say yes pretty please 🥺";
                     noBtn.style.background = "linear-gradient(to right, #ff4d8d, #9d4edd)";
                     noBtn.style.color = "white";
+                    moveButtonGradually();
                 } else if (noButtonClicks === 4) {
-                    // Fourth click - DISAPPEAR!
-                    noBtn.style.display = 'none';
+                    // Fourth click - DISAPPEAR gradually!
+                    noBtn.style.transition = 'all 0.8s ease';
+                    noBtn.style.opacity = '0';
+                    noBtn.style.transform = 'scale(0)';
+                    setTimeout(() => {
+                        noBtn.style.display = 'none';
+                    }, 800);
                 }
             });
             
-            function moveButtonRandomly() {
+            function moveButtonGradually() {
                 const container = document.querySelector('.valentine-question');
                 const containerRect = container.getBoundingClientRect();
                 const buttonRect = noBtn.getBoundingClientRect();
                 
-                // Calculate available space
-                const maxX = containerRect.width - buttonRect.width - 40;
-                const maxY = containerRect.height - buttonRect.height - 40;
+                // Calculate available space with margins
+                const margin = 40;
+                const maxX = containerRect.width - buttonRect.width - margin;
+                const maxY = containerRect.height - buttonRect.height - margin;
                 
                 // Ensure valid position
                 if (maxX > 0 && maxY > 0) {
                     const randomX = Math.random() * maxX;
                     const randomY = Math.random() * maxY;
                     
-                    // Move the button
+                    // Store current position
+                    const currentLeft = parseFloat(noBtn.style.left) || 0;
+                    const currentTop = parseFloat(noBtn.style.top) || 0;
+                    
+                    // Set up for smooth transition
+                    noBtn.style.transition = 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
                     noBtn.style.position = 'absolute';
-                    noBtn.style.left = `${randomX}px`;
-                    noBtn.style.top = `${randomY}px`;
+                    
+                    // Apply the movement
+                    setTimeout(() => {
+                        noBtn.style.left = `${randomX}px`;
+                        noBtn.style.top = `${randomY}px`;
+                    }, 10);
+                    
+                    // Add a slight bounce effect at the end
+                    setTimeout(() => {
+                        noBtn.style.transition = 'transform 0.3s ease';
+                        noBtn.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            noBtn.style.transform = 'scale(1)';
+                        }, 300);
+                    }, 1200);
                 }
             }
         }
@@ -1494,9 +1434,13 @@
             // Start music with REDUCED VOLUME (0.3 instead of 0.5)
             bgMusic.volume = 0.3; // Reduced from 0.5 to 0.3
             bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
+            
+            // Set music icon to PAUSE since music auto-plays
+            musicIcon.classList.remove('fa-play');
+            musicIcon.classList.add('fa-pause');
         });
         
-        // Music control
+        // Music control - toggle between play and pause
         document.getElementById('music-toggle').addEventListener('click', () => {
             if(bgMusic.paused) { 
                 bgMusic.play(); 
@@ -1574,6 +1518,9 @@
             noBtn.style.top = '';
             noBtn.style.background = 'linear-gradient(to right, #a8a8a8, #6c757d)';
             noBtn.style.color = 'white';
+            noBtn.style.opacity = '1';
+            noBtn.style.transform = 'scale(1)';
+            noBtn.style.transition = 'all 0.3s ease';
             noBtn.innerHTML = noButtonOriginalText;
             
             showPage('page1');
@@ -1595,6 +1542,10 @@
             
             // Record start time
             startTime = Date.now();
+            
+            // Set initial music icon to play (will change to pause when music auto-plays)
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-play');
         });
     </script>
 </body>
