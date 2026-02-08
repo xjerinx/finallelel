@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Kenisha 💖</title>
+    <title>For My Beautiful Kenisha 💖</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -77,8 +77,17 @@
             font-family: 'Dancing Script', cursive;
             font-size: 4.5rem;
             color: #e63946;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .personal-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #9d4edd;
+            margin-bottom: 30px;
+            font-style: italic;
+            animation: fadeIn 2s ease;
         }
         
         .kenisha-name {
@@ -120,6 +129,14 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             line-height: 1.6;
+        }
+        
+        .just-for-you {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #e63946;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
         }
         
         .btn {
@@ -233,7 +250,7 @@
             display: block;
         }
         
-        /* Cute message popup - ONLY THIS ONE APPEARS NOW */
+        /* Cute message popup */
         .cute-message {
             position: absolute;
             background-color: rgba(255, 255, 255, 0.95);
@@ -258,7 +275,7 @@
         
         /* Page 3 - Love Letter */
         #page3 {
-            animation: fadeIn 1.5s ease;
+            animation: fadeIn 1s ease;
         }
         
         .letter-container {
@@ -295,19 +312,47 @@
         
         .letter-content {
             font-size: 1.8rem;
-            line-height: 1.8;
+            line-height: 2;
             text-align: center;
             margin-bottom: 40px;
             font-family: 'Dancing Script', cursive;
             color: #5a3d5c;
+            min-height: 200px;
+            overflow: hidden;
+        }
+        
+        .typewriter-line {
+            opacity: 0;
+            animation: typewriter 1.5s ease forwards;
+            margin-bottom: 15px;
+        }
+        
+        .typewriter-line:nth-child(1) { animation-delay: 0.3s; }
+        .typewriter-line:nth-child(2) { animation-delay: 2s; }
+        .typewriter-line:nth-child(3) { animation-delay: 4s; }
+        .typewriter-line:nth-child(4) { animation-delay: 6s; }
+        .typewriter-line:nth-child(5) { animation-delay: 8s; }
+        
+        @keyframes typewriter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .letter-signature {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
             color: #9d4edd;
-            text-align: right;
+            text-align: center;
             margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 1s ease 9.5s forwards;
+            line-height: 1.4;
         }
         
         /* Page 4 - Valentine Question */
@@ -330,22 +375,34 @@
             font-family: 'Dancing Script', cursive;
             font-size: 4rem;
             color: #e63946;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         .valentine-subtitle {
             font-family: 'Dancing Script', cursive;
             font-size: 3rem;
-            color: #9d4edd;
+            color: #e63946;
             margin-bottom: 40px;
             font-weight: 600;
         }
         
-        .teary-emoji {
-            font-size: 8rem;
+        .pickup-line-footer {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
             color: #e63946;
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
+            margin-top: 50px;
+            font-style: italic;
+            animation: fadeIn 2s ease;
+            opacity: 1;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border: 2px dashed #ffafcc;
+            display: block;
+            width: 90%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .options-container {
@@ -370,7 +427,7 @@
         
         .final-message {
             font-size: 2.5rem;
-            color: #e63946;
+            color: #9d4edd;
             margin-top: 40px;
             font-family: 'Dancing Script', cursive;
             opacity: 0;
@@ -380,6 +437,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         .final-message.show {
@@ -446,6 +504,83 @@
             color: #5a3d5c;
             margin-top: 20px;
             font-style: italic;
+        }
+        
+        .closing-line {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #e63946;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-top: 2px dashed #ffafcc;
+            animation: fadeIn 2s ease;
+        }
+        
+        .made-with-love {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #9d4edd;
+            margin-top: 30px;
+            opacity: 0.7;
+            animation: fadeIn 3s ease;
+        }
+        
+        /* Easter egg message */
+        .easter-egg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 25px;
+            font-size: 1.8rem;
+            color: #e63946;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            z-index: 2000;
+            border: 5px solid #ffafcc;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            animation: popUp 0.8s ease-out;
+            display: none;
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .easter-egg.show {
+            display: block;
+        }
+        
+        .easter-egg-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #e63946;
+            cursor: pointer;
+        }
+        
+        /* Countdown timer for easter egg */
+        .countdown-timer {
+            font-size: 1rem;
+            color: #ff8e53;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        /* Secret button disabled state */
+        .secret-btn-disabled {
+            background: linear-gradient(to right, #a8a8a8, #6c757d) !important;
+            cursor: not-allowed !important;
+            opacity: 0.6;
+        }
+        
+        .secret-btn-disabled:hover {
+            transform: none !important;
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4) !important;
         }
         
         /* Confetti effect */
@@ -519,6 +654,27 @@
             max-width: 150px;
         }
         
+        /* Video page buttons container */
+        .video-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .video-page-btn {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+        }
+        
+        #secret-btn {
+            background: linear-gradient(to right, #ff8e53, #ff6b6b);
+            font-size: 1.8rem;
+            padding: 15px 20px;
+            min-width: 60px;
+        }
+        
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -541,6 +697,10 @@
                 font-size: 3rem;
             }
             
+            .personal-message {
+                font-size: 1.5rem;
+            }
+            
             .game-invite, .letter-container, .valentine-question, .video-container {
                 padding: 25px;
                 width: 95%;
@@ -554,12 +714,26 @@
                 font-size: 2.2rem;
             }
             
+            .pickup-line-footer {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+                margin-top: 40px;
+            }
+            
             .letter-content {
                 font-size: 1.5rem;
             }
             
-            .teary-emoji {
-                font-size: 6rem;
+            .typewriter-line {
+                font-size: 1.5rem;
+            }
+            
+            .letter-signature {
+                font-size: 2rem;
+            }
+            
+            .closing-line {
+                font-size: 2rem;
             }
             
             .options-container {
@@ -589,11 +763,34 @@
             .video-message {
                 font-size: 1.3rem;
             }
+            
+            .final-message {
+                font-size: 2rem;
+            }
+            
+            .video-buttons-container {
+                gap: 15px;
+            }
+            
+            .video-page-btn {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+            
+            #secret-btn {
+                font-size: 1.5rem;
+                padding: 12px 18px;
+                min-width: 50px;
+            }
         }
         
         @media (max-width: 480px) {
             .title {
                 font-size: 2.5rem;
+            }
+            
+            .personal-message {
+                font-size: 1.3rem;
             }
             
             .game-invite h2 {
@@ -609,6 +806,10 @@
                 font-size: 1.3rem;
             }
             
+            .typewriter-line {
+                font-size: 1.3rem;
+            }
+            
             .valentine-title {
                 font-size: 2.5rem;
             }
@@ -617,12 +818,22 @@
                 font-size: 1.8rem;
             }
             
-            .teary-emoji {
-                font-size: 5rem;
+            .pickup-line-footer {
+                font-size: 1rem;
+                padding: 10px 15px;
+                margin-top: 30px;
+            }
+            
+            .letter-signature {
+                font-size: 1.7rem;
             }
             
             #video-iframe {
                 height: 250px;
+            }
+            
+            .closing-line {
+                font-size: 1.8rem;
             }
             
             .auto-transition-message {
@@ -637,6 +848,26 @@
             .video-message {
                 font-size: 1.1rem;
             }
+            
+            .final-message {
+                font-size: 1.7rem;
+            }
+            
+            .video-buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .video-page-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            #secret-btn {
+                font-size: 1.3rem;
+                padding: 10px 15px;
+                min-width: 45px;
+            }
         }
     </style>
 </head>
@@ -647,26 +878,46 @@
     <!-- Auto transition message -->
     <div class="auto-transition-message" id="auto-transition-message">
         <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
-        <div>Yay! You collected all the love! 💖</div>
-        <div style="font-size: 1.2rem; margin-top: 10px; color: #9d4edd;">Taking you to your love letter...</div>
+        <div>You caught all my love for you! 💖</div>
+        <div style="font-size: 1.2rem; margin-top: 10px; color: #9d4edd;">Taking you to my heart's words...</div>
+    </div>
+    
+    <!-- Easter Egg Message -->
+    <div class="easter-egg" id="easter-egg">
+        <button class="easter-egg-close" id="easter-egg-close">&times;</button>
+        <div style="font-size: 3rem; margin-bottom: 20px;">🤫✨</div>
+        <div>Secret Message Unlocked! 🤭</div>
+        <div style="font-size: 1.5rem; margin-top: 20px; color: #9d4edd;">
+            Psst... I heard you clicking around! 👀<br><br>
+            Just wanted to let you know:<br>
+            You're way more fun than Netflix. 🍿<br>
+            And cuter than a puppy with a bowtie. 🐶🎀<br><br>
+            *This message self-destructs in 10 secs* ⏳
+        </div>
+        <div class="countdown-timer" id="countdown-timer">Closing in: 10 seconds</div>
+        <div style="margin-top: 25px; font-size: 1rem; color: #ff8e53;">
+            Click anywhere or the X to close
+        </div>
     </div>
     
     <!-- Page 1: Game invitation -->
     <div class="page-container" id="page1">
-        <h1 class="title">For My <span class="kenisha-name">Kenisha</span> 💖</h1>
+        <h1 class="title">For My <span class="kenisha-name">Beautiful Kenisha</span> 💖</h1>
+        <div class="personal-message">A special something, just for you...</div>
         <div class="game-invite">
-            <h2>Will You Play a Game With Me?</h2>
-            <p>My dearest Kenisha, I've created a little Valentine's game just for you. It's a simple game where you catch cute emojis to reveal sweet messages. Are you ready to play?</p>
-            <button class="btn" id="start-game-btn">Yes, Let's Play! <i class="fas fa-gamepad"></i></button>
+            <h2>Will You Play My Heart's Game?</h2>
+            <p>My dearest Kenisha, every moment with you feels like a beautiful dream. I created this little game where you catch pieces of my heart. Each emoji holds a sweet message about how I feel about you.</p>
+            <div class="just-for-you">This is just for you, my love 💕</div>
+            <button class="btn" id="start-game-btn">Absolutely! Let's Catch Love! <i class="fas fa-heart"></i></button>
         </div>
     </div>
     
     <!-- Page 2: Emoji game -->
     <div class="page-container hidden" id="page2">
         <div class="game-header">
-            <h2 class="game-title">Catch the Love Emojis!</h2>
-            <div class="score-container">Score: <span class="score" id="score">0</span> / 6</div>
-            <p>Catch the falling emojis to reveal sweet messages. Collect all 6 to unlock your love letter!</p>
+            <h2 class="game-title">Catch All My Love For You! 💘</h2>
+            <div class="score-container">Pieces of my heart collected: <span class="score" id="score">0</span> / 6</div>
+            <p>Click the falling emojis to reveal sweet messages from my heart. Collect all 6 to unlock my love letter to you!</p>
         </div>
         
         <div class="game-area" id="game-area">
@@ -674,49 +925,53 @@
         </div>
     </div>
     
-    <!-- Page 3: Love letter -->
+    <!-- Page 3: Love Letter -->
     <div class="page-container hidden" id="page3">
         <div class="letter-container">
-            <h2 class="letter-header">My Dearest Kenisha,</h2>
-            <div class="letter-content">
-                Every day with you feels like a beautiful dream.<br>
-                Your smile is my favorite sunrise,<br>
-                Your laughter is my favorite melody.<br>
-                You make my world brighter in every way.<br>
-                I love you more than words can say. ❤️
+            <h2 class="letter-header">To My Beautiful Kenisha 💌</h2>
+            <div class="letter-content" id="letter-content">
+                <!-- Typewriter text will be inserted here -->
             </div>
             <div class="letter-signature">
-                With all my love,<br>
-                Your Valentine 💘
+                Forever yours,<br>
+                The one who loves you endlessly 🌹
             </div>
-            <button class="btn" id="next-page-btn" style="margin-top: 40px;">Next <i class="fas fa-arrow-right"></i></button>
+            <button class="btn" id="next-page-btn" style="margin-top: 40px; opacity: 0; animation: fadeIn 1s ease 10s forwards;">Next <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
     
-    <!-- Page 4: Valentine question -->
+    <!-- Page 4: Valentine Question -->
     <div class="page-container hidden" id="page4">
         <div class="valentine-question">
-            <h2 class="valentine-title">One Last Question...</h2>
+            <h2 class="valentine-title">My Final Question... 💝</h2>
             <div class="valentine-subtitle">Will You Be My Valentine? 🥹</div>
+            
             <div class="options-container">
-                <button class="btn option-btn" id="yes-btn">YES! <i class="fas fa-heart"></i></button>
+                <button class="btn option-btn" id="yes-btn">YES! A Thousand Times Yes! 💖</button>
                 <button class="btn option-btn" id="no-btn">No <i class="fas fa-times"></i></button>
             </div>
+            
             <div class="final-message" id="final-message"></div>
+            
             <!-- Button to go to video page -->
             <button class="btn" id="to-video-btn" style="display: none; margin-top: 20px;">Watch Our Special Video <i class="fas fa-video"></i></button>
+            
+            <!-- Pickup line at the bottom -->
+            <div class="pickup-line-footer" id="pickup-line-footer">
+                "Are you a magician? Because whenever I look at you, everyone else disappears." ✨
+            </div>
         </div>
     </div>
     
-    <!-- Page 5: Video page -->
+    <!-- Page 5: Video Page -->
     <div class="page-container hidden" id="page5">
         <div class="video-container">
-            <h2 class="video-title">For My Kenisha 💖</h2>
+            <h2 class="video-title">For My Beautiful Kenisha 💖</h2>
             <div class="video-wrapper">
                 <!-- YOUR GOOGLE DRIVE VIDEO IS EMBEDDED HERE -->
                 <iframe
                     id="video-iframe"
-                    src="https://drive.google.com/file/d/1v8MLXep62lZsE-MSXY1FD4aFuVUN3Bqq/preview"
+                    src="https://drive.google.com/file/d/104BKhIU_K8DrWbrLoAxRJXCIyhZj96Ea/preview"
                     width="100%"
                     height="450"
                     frameborder="0"
@@ -725,21 +980,33 @@
                 </iframe>
             </div>
             <div class="video-message">
-                This is just a small token of my love for you, Kenisha. Every moment with you is special, and I wanted to create something that shows how much you mean to me. I love you more than words can say! 💖
+                "If I had a flower for every time I thought of you, I could walk in my garden forever." 🌹<br><br>
+                This video is just a small glimpse of how much you mean to me. Every smile, every laugh, every moment with you is treasured in my heart.
             </div>
-            <button class="btn" id="restart-btn" style="margin-top: 30px;">Start Over <i class="fas fa-redo"></i></button>
+            <div class="closing-line">
+                No matter where life takes us, my heart will always find its way back to you. 🌟
+            </div>
+            <div class="made-with-love">
+                Made with all my love 💕
+            </div>
+            
+            <!-- Buttons container for video page -->
+            <div class="video-buttons-container">
+                <button class="btn video-page-btn" id="restart-btn">Relive Our Love Story <i class="fas fa-redo"></i></button>
+                <button class="btn video-page-btn" id="secret-btn">💌</button>
+            </div>
         </div>
     </div>
     
-    <!-- Confetti container -->
+    <!-- Confetti Container -->
     <div class="confetti-container" id="confetti-container"></div>
     
-    <!-- Music player -->
+    <!-- Music Player -->
     <div class="music-player">
         <button class="music-btn" id="music-toggle">
             <i class="fas fa-play" id="music-icon"></i>
         </button>
-        <div class="music-title">Love Song for Kenisha</div>
+        <div class="music-title">Our Love Song 💘</div>
         <audio id="bg-music" loop>
             <source src="uify.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
@@ -758,6 +1025,7 @@
         const finalMessage = document.getElementById('final-message');
         const toVideoBtn = document.getElementById('to-video-btn');
         const restartBtn = document.getElementById('restart-btn');
+        const secretBtn = document.getElementById('secret-btn');
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         const bgMusic = document.getElementById('bg-music');
@@ -765,27 +1033,45 @@
         const confettiContainer = document.getElementById('confetti-container');
         const autoTransitionMessage = document.getElementById('auto-transition-message');
         const videoIframe = document.getElementById('video-iframe');
+        const letterContent = document.getElementById('letter-content');
+        const easterEgg = document.getElementById('easter-egg');
+        const easterEggClose = document.getElementById('easter-egg-close');
+        const countdownTimer = document.getElementById('countdown-timer');
+        const pickupLineFooter = document.getElementById('pickup-line-footer');
 
         // Game variables
         let score = 0;
         let emojiInterval;
         let noButtonClicks = 0;
         let noButtonOriginalText = "No <i class='fas fa-times'></i>";
+        let startTime = Date.now();
+        let easterEggTimeout = null;
+        let countdownInterval = null;
+        let easterEggOpened = false; // Track if easter egg has been opened
         
-        // Cute messages for when emojis are clicked
+        // Romantic pick-up lines and sweet messages
         const cuteMessages = [
-            "You make my heart skip a beat! 💓",
-            "You're sweeter than candy! 🍬",
-            "My love for you grows every day! 🌱",
-            "You're my favorite thought! 💭",
-            "You shine brighter than stars! ⭐",
-            "You're my happy place! 🏠",
-            "My heart is yours forever! 🔐",
-            "You're absolutely amazing! ✨",
-            "You make everything better! 🌈",
-            "I'm so lucky to have you! 🍀",
-            "You're my dream come true! 💫",
-            "I cherish every moment with you! ⏳"
+            "Are you a campfire? Because you're hot and I want s'more! 🔥",
+            "If you were a vegetable, you'd be a cute-cumber! 🥒",
+            "Do you have a name? Or can I call you mine? 💝",
+            "Is your name Google? Because you have everything I've been searching for! 🔍",
+            "You must be a magician, because every time I look at you, everyone else disappears! ✨",
+            "Are you a bank loan? Because you have my interest! 💰",
+            "If beauty were time, you'd be an eternity! ⏳",
+            "Do you believe in love at first sight, or should I walk by again? 👀",
+            "Are you made of copper and tellurium? Because you're Cu-Te! 🧪",
+            "Is your heart taken? Because I'd like to apply for the position! 💼",
+            "You must be tired, because you've been running through my mind all day! 🏃‍♂️💭",
+            "If you were a song, you'd be the best track on my playlist! 🎵"
+        ];
+        
+        // Typewriter love letter lines
+        const loveLetterLines = [
+            "My dearest Kenisha,",
+            "Every time I see your smile,",
+            "My world becomes brighter.",
+            "You're the missing piece",
+            "I've been searching for my whole life. 💝"
         ];
         
         // Emoji options
@@ -797,6 +1083,122 @@
                 page.classList.add('hidden');
             });
             document.getElementById(pageId).classList.remove('hidden');
+        }
+        
+        // Function to setup typewriter love letter
+        function setupTypewriterLetter() {
+            letterContent.innerHTML = '';
+            loveLetterLines.forEach((line, index) => {
+                const lineElement = document.createElement('div');
+                lineElement.className = 'typewriter-line';
+                lineElement.textContent = line;
+                letterContent.appendChild(lineElement);
+            });
+        }
+        
+        // Function to disable secret button
+        function disableSecretButton() {
+            secretBtn.classList.add('secret-btn-disabled');
+            secretBtn.disabled = true;
+            secretBtn.title = "Already opened! Click 'Relive Our Love Story' to open again";
+        }
+        
+        // Function to enable secret button
+        function enableSecretButton() {
+            secretBtn.classList.remove('secret-btn-disabled');
+            secretBtn.disabled = false;
+            secretBtn.title = "Click for a secret surprise!";
+        }
+        
+        // Function to close easter egg
+        function closeEasterEgg() {
+            easterEgg.classList.remove('show');
+            // Clear any existing timeout and interval
+            if (easterEggTimeout) {
+                clearTimeout(easterEggTimeout);
+                easterEggTimeout = null;
+            }
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+        }
+        
+        // Function to start countdown for easter egg
+        function startEasterEggCountdown() {
+            let secondsLeft = 10;
+            
+            // Update countdown display immediately
+            countdownTimer.textContent = `Closing in: ${secondsLeft} seconds`;
+            
+            // Update countdown every second
+            countdownInterval = setInterval(() => {
+                secondsLeft--;
+                countdownTimer.textContent = `Closing in: ${secondsLeft} seconds`;
+                
+                if (secondsLeft <= 0) {
+                    closeEasterEgg();
+                }
+            }, 1000);
+            
+            // Set timeout to close after 10 seconds
+            easterEggTimeout = setTimeout(() => {
+                closeEasterEgg();
+            }, 10000);
+        }
+        
+        // Function to show easter egg (can only be opened once)
+        function showEasterEgg() {
+            if (easterEggOpened) {
+                return; // Don't show if already opened
+            }
+            
+            // Mark as opened
+            easterEggOpened = true;
+            
+            // Disable the secret button
+            disableSecretButton();
+            
+            // Close any existing easter egg first
+            closeEasterEgg();
+            
+            // Show the easter egg
+            easterEgg.classList.add('show');
+            
+            // Start the countdown
+            startEasterEggCountdown();
+        }
+        
+        // Setup easter egg - can only be opened once
+        function setupEasterEgg() {
+            // Setup secret button click
+            secretBtn.addEventListener('click', () => {
+                showEasterEgg();
+            });
+            
+            // Setup easter egg close button
+            easterEggClose.addEventListener('click', function() {
+                closeEasterEgg();
+            });
+            
+            // Close easter egg when clicking outside
+            easterEgg.addEventListener('click', function(e) {
+                if (e.target === easterEgg) {
+                    closeEasterEgg();
+                }
+            });
+            
+            // Set initial tooltip
+            secretBtn.title = "Click for a secret surprise!";
+        }
+        
+        // Function to reset easter egg
+        function resetEasterEgg() {
+            closeEasterEgg();
+            easterEggTimeout = null;
+            countdownInterval = null;
+            easterEggOpened = false; // Reset the opened flag
+            enableSecretButton(); // Re-enable the button
         }
         
         // Function to stop and reset video
@@ -923,6 +1325,7 @@
                 setTimeout(() => {
                     autoTransitionMessage.classList.remove('show');
                     showPage('page3');
+                    setupTypewriterLetter();
                 }, 2000);
             }
         }
@@ -1088,8 +1491,8 @@
             // Start the game
             startGame();
             
-            // Start music
-            bgMusic.volume = 0.5;
+            // Start music with REDUCED VOLUME (0.3 instead of 0.5)
+            bgMusic.volume = 0.3; // Reduced from 0.5 to 0.3
             bgMusic.play().catch(e => console.log("Autoplay prevented:", e));
         });
         
@@ -1123,7 +1526,9 @@
             
             // Hide the buttons after click
             yesBtn.style.display = 'none';
-            noBtn.style.display = 'none';
+            if (noBtn.style.display !== 'none') {
+                noBtn.style.display = 'none';
+            }
             
             // Play happy sound if available
             try {
@@ -1148,6 +1553,9 @@
             
             // Reset audio
             resetAudio();
+            
+            // Reset easter egg
+            resetEasterEgg();
             
             // Reset variables
             score = 0;
@@ -1179,8 +1587,14 @@
             // Setup no button behavior
             setupNoButton();
             
+            // Setup easter egg (only works on video page)
+            setupEasterEgg();
+            
             // Show first page
             showPage('page1');
+            
+            // Record start time
+            startTime = Date.now();
         });
     </script>
 </body>
