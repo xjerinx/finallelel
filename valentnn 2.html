@@ -294,10 +294,12 @@
         }
         
         .letter-content {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             line-height: 1.8;
-            text-align: left;
+            text-align: center;
             margin-bottom: 40px;
+            font-family: 'Dancing Script', cursive;
+            color: #5a3d5c;
         }
         
         .letter-signature {
@@ -328,11 +330,12 @@
             font-family: 'Dancing Script', cursive;
             font-size: 4rem;
             color: #e63946;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .valentine-subtitle {
-            font-size: 1.8rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
             color: #9d4edd;
             margin-bottom: 40px;
             font-weight: 600;
@@ -430,7 +433,13 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
-        /* YOUR GOOGLE DRIVE VIDEO IS HERE */
+        /* Video iframe styling */
+        #video-iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
         .video-message {
             font-size: 1.5rem;
             line-height: 1.8;
@@ -542,6 +551,10 @@
             }
             
             .valentine-subtitle {
+                font-size: 2.2rem;
+            }
+            
+            .letter-content {
                 font-size: 1.5rem;
             }
             
@@ -561,6 +574,10 @@
             
             .emoji {
                 font-size: 2.8rem;
+            }
+            
+            #video-iframe {
+                height: 350px;
             }
             
             .auto-transition-message {
@@ -589,7 +606,7 @@
             }
             
             .letter-content {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
             
             .valentine-title {
@@ -597,11 +614,15 @@
             }
             
             .valentine-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.8rem;
             }
             
             .teary-emoji {
                 font-size: 5rem;
+            }
+            
+            #video-iframe {
+                height: 250px;
             }
             
             .auto-transition-message {
@@ -658,19 +679,15 @@
         <div class="letter-container">
             <h2 class="letter-header">My Dearest Kenisha,</h2>
             <div class="letter-content">
-                <p>From the moment you came into my life, everything has felt brighter, warmer, and more beautiful. Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received.</p>
-                
-                <p>On this special day dedicated to love, I want to remind you how incredibly special you are to me. You're not just my Valentine; you're my best friend, my confidant, and my greatest support. Every moment with you is a treasure I hold close to my heart.</p>
-                
-                <p>I love the way your eyes sparkle when you talk about things you're passionate about. I love how you make even ordinary days feel extraordinary. I love your kindness, your strength, and the beautiful person you are inside and out.</p>
-                
-                <p>Today and every day, I choose you. I choose to love you, to cherish you, and to build beautiful memories with you. Thank you for being you, and for letting me be a part of your wonderful journey.</p>
-                
-                <p>Happy Valentine's Day, my love. May our hearts continue to dance together through all of life's adventures.</p>
+                Every day with you feels like a beautiful dream.<br>
+                Your smile is my favorite sunrise,<br>
+                Your laughter is my favorite melody.<br>
+                You make my world brighter in every way.<br>
+                I love you more than words can say. ❤️
             </div>
             <div class="letter-signature">
-                With all my love, forever and always.<br>
-                Your Valentine ❤️
+                With all my love,<br>
+                Your Valentine 💘
             </div>
             <button class="btn" id="next-page-btn" style="margin-top: 40px;">Next <i class="fas fa-arrow-right"></i></button>
         </div>
@@ -680,8 +697,7 @@
     <div class="page-container hidden" id="page4">
         <div class="valentine-question">
             <h2 class="valentine-title">One Last Question...</h2>
-            <div class="valentine-subtitle">will u please be my valentine?</div>
-            <div class="teary-emoji">🥹</div>
+            <div class="valentine-subtitle">Will You Be My Valentine? 🥹</div>
             <div class="options-container">
                 <button class="btn option-btn" id="yes-btn">YES! <i class="fas fa-heart"></i></button>
                 <button class="btn option-btn" id="no-btn">No <i class="fas fa-times"></i></button>
@@ -699,7 +715,8 @@
             <div class="video-wrapper">
                 <!-- YOUR GOOGLE DRIVE VIDEO IS EMBEDDED HERE -->
                 <iframe
-                    src="https://drive.google.com/file/d/1K3_MfZ3gJZsE_euqWhXfPmJzlg818FES/preview"
+                    id="video-iframe"
+                    src="https://drive.google.com/file/d/1v8MLXep62lZsE-MSXY1FD4aFuVUN3Bqq/preview"
                     width="100%"
                     height="450"
                     frameborder="0"
@@ -747,6 +764,7 @@
         const heartsContainer = document.getElementById('hearts-container');
         const confettiContainer = document.getElementById('confetti-container');
         const autoTransitionMessage = document.getElementById('auto-transition-message');
+        const videoIframe = document.getElementById('video-iframe');
 
         // Game variables
         let score = 0;
@@ -779,6 +797,22 @@
                 page.classList.add('hidden');
             });
             document.getElementById(pageId).classList.remove('hidden');
+        }
+        
+        // Function to stop and reset video
+        function stopAndResetVideo() {
+            if (videoIframe) {
+                // Stop the video by replacing the iframe source
+                videoIframe.src = videoIframe.src;
+            }
+        }
+        
+        // Function to reset audio
+        function resetAudio() {
+            bgMusic.pause();
+            bgMusic.currentTime = 0;
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-play');
         }
         
         // Initialize game
@@ -1014,8 +1048,8 @@
                     noBtn.innerHTML = "why no? ☹";
                     moveButtonRandomly();
                 } else if (noButtonClicks === 3) {
-                    // Third click - change to "your only option is yes hehe😋"
-                    noBtn.innerHTML = "your only option is yes hehe😋";
+                    // Third click - change to "say yes pretty please 🥺"
+                    noBtn.innerHTML = "say yes pretty please 🥺";
                     noBtn.style.background = "linear-gradient(to right, #ff4d8d, #9d4edd)";
                     noBtn.style.color = "white";
                 } else if (noButtonClicks === 4) {
@@ -1102,10 +1136,19 @@
         });
         
         toVideoBtn.addEventListener('click', function() {
+            // Pause the background music when going to video page
+            resetAudio();
+            
             showPage('page5');
         });
         
         restartBtn.addEventListener('click', function() {
+            // Stop and reset the video
+            stopAndResetVideo();
+            
+            // Reset audio
+            resetAudio();
+            
             // Reset variables
             score = 0;
             noButtonClicks = 0;
